@@ -29,6 +29,7 @@ requirements:
     - numpy
     - python >=3.8
     - qtpy
+    - superqt
     - trackpy
 
 test:
