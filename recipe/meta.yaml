@@ -1,5 +1,5 @@
 {% set name = "napari-trackpy" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-trackpy-{{ version }}.tar.gz
-  sha256: 33d196e8dcf486ab11961f8d84f365ad89956cfe07f8c21ad009c7c0874dca66
+  sha256: fcbdc8cbd7cc031fcea244627617f97c10f2b655df301229e4cb2c4eab832c85
 
 build:
   noarch: python
@@ -29,13 +29,14 @@ requirements:
     - numpy
     - python >=3.8
     - qtpy
+    - superqt
     - trackpy
 
 test:
   imports:
     - napari_trackpy
   commands:
-    - pip list 
+    - pip list
     # - pip check # Fails due to aicsimageio dependencies
   requires:
     - pip
