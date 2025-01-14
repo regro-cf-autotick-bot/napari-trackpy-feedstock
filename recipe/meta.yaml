@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-trackpy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-trackpy-{{ version }}.tar.gz
   sha256: fcbdc8cbd7cc031fcea244627617f97c10f2b655df301229e4cb2c4eab832c85
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=42.0.0
     - setuptools-scm
     - wheel
@@ -27,7 +27,7 @@ requirements:
     - napari
     - napari-aicsimageio >=0.7.0
     - numpy
-    - python >=3.8
+    - python >={{ python_min }}
     - qtpy
     - superqt
     - trackpy
@@ -41,6 +41,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/napari-trackpy
